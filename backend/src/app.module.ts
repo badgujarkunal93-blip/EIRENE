@@ -28,6 +28,7 @@ import { BookingsModule } from './modules/bookings/bookings.module';
 import { PaymentsModule } from './modules/payments/payments.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { BackupModule } from './modules/backup/backup.module';
+import { AppController } from './app.controller';
 
 // Orchestrates the entire clinical system by aggregating core configurations, security guards, and feature-specific modules into a unified root.
 @Module({
@@ -105,6 +106,7 @@ import { BackupModule } from './modules/backup/backup.module';
     CloudinaryModule,
     BackupModule,
   ],
+  controllers: [AppController],
 
   // Global Security Guards
   // Enforces mandatory authentication and role-based access control across all application endpoints by default.

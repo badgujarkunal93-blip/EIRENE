@@ -201,7 +201,7 @@ const DashboardHome: React.FC<Props> = ({ onNavigate }) => {
         <div className="relative flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-100">
-              <img src={iconImg} alt="Care Home Logo" className="h-4 w-4 object-contain" /> {todayLabel}
+              <img src={iconImg} alt="EIRENE Logo" className="h-4 w-4 object-contain" /> {todayLabel}
             </div>
             <h2 className="mt-3 text-2xl font-bold text-slate-900 md:text-3xl">
               Welcome back, Caregiver 👋

@@ -78,7 +78,7 @@ const Home: React.FC = () => {
             <div className="max-w-160 reveal is-visible">
               <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-white/90 text-xs font-semibold backdrop-blur">
                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                Elderly Care Management System
+                EIRENE — Peace of Mind, Better Care
               </div>
 
               <h1 className="mt-5 text-white text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight">
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
               </h1>
 
               <p className="mt-4 text-white/90 text-sm md:text-base leading-relaxed max-w-[56ch]">
-                Care Home connects families, doctors, caregivers, and administrators to deliver safe, consistent care with real-time updates.
+                EIRENE connects families, doctors, caregivers, and administrators to deliver safe, consistent care with real-time updates.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
@@ -209,7 +209,7 @@ const Home: React.FC = () => {
                 The Best Elderly Care Center For You
               </h2>
               <p className="mt-4 text-slate-600 leading-relaxed">
-                CareHome simplifies daily care tasks, appointment scheduling, and health monitoring.
+                EIRENE simplifies daily care tasks, appointment scheduling, and health monitoring.
                 With real-time updates and effortless coordination, it brings peace of mind for families
                 and safer care for seniors.
               </p>

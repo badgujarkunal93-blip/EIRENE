@@ -223,7 +223,7 @@ export default function ForgotPasswordCard({ onGoLogin }: Props) {
       <Link to="/">
         <img 
           src={sideImg} 
-          alt="Care Home" 
+          alt="EIRENE" 
           className="h-full w-full object-cover cursor-pointer" 
         />
       </Link>
@@ -231,9 +231,9 @@ export default function ForgotPasswordCard({ onGoLogin }: Props) {
       <div className="absolute bottom-5 left-5 right-5">
         <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-3 text-white backdrop-blur-xl shadow-[0_18px_40px_rgba(2,6,23,0.35)]">
           <div className="absolute -top-10 left-1/2 h-20 w-56 -translate-x-1/2 rotate-12 bg-white/10 blur-2xl" />
-          <p className="text-base font-black tracking-tight">Care, connected.</p>
+          <p className="text-base font-black tracking-tight">EIRENE</p>
           <p className="mt-1 text-sm font-medium text-white/85">
-            Family, doctors and caregivers in one system.
+            Peace of Mind, Better Care.
           </p>
         </div>
       </div>
@@ -242,8 +242,8 @@ export default function ForgotPasswordCard({ onGoLogin }: Props) {
 
   const Logo = () => (
     <div className="inline-flex items-center gap-2">
-      <img src={iconImg} alt="Care Home Logo" className="h-6 w-6 object-contain" />
-      <span className="text-sm font-extrabold tracking-tight text-slate-900">Care Home</span>
+      <img src={iconImg} alt="EIRENE Logo" className="h-6 w-6 object-contain" />
+      <span className="text-sm font-extrabold tracking-tight text-slate-900">EIRENE</span>
     </div>
   );
 

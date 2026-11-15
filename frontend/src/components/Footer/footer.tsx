@@ -12,12 +12,12 @@ const Footer: FC = () => {
           {/* Logo & Description */}
           <div className="max-w-md">
             <Link to="/" className="flex items-center gap-2 font-extrabold">
-              <img src={iconImg} alt="Care Home Logo" className="h-6 w-6 object-contain" />
-              <span>Care Home</span>
+              <img src={iconImg} alt="EIRENE Logo" className="h-6 w-6 object-contain" />
+              <span>EIRENE</span>
             </Link>
 
             <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-              Compassionate care for your loved ones in a safe and comfortable environment.
+              Peace of Mind, Better Care. Compassionate elderly care &amp; medication management in a secure, connected environment.
             </p>
           </div>
 
@@ -33,7 +33,7 @@ const Footer: FC = () => {
         {/* Bottom Bar */}
         <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} Care Home. All rights reserved.
+            © {new Date().getFullYear()} EIRENE. All rights reserved.
           </p>
           
           {/* Social Icons */}

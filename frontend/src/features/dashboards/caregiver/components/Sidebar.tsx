@@ -70,9 +70,9 @@ const Sidebar: React.FC<Props> = ({ items, activeMenu, isOpen, onClose, onNaviga
           {/* Brand */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src={iconImg} alt="Care Home Logo" className="h-10 w-10 object-contain" />
+              <img src={iconImg} alt="EIRENE Logo" className="h-10 w-10 object-contain" />
               <div>
-                <p className="text-sm font-semibold text-slate-800">Care Home</p>
+                <p className="text-sm font-semibold text-slate-800">EIRENE</p>
                 <p className="text-xs text-slate-500">Caregiver Panel</p>
               </div>
             </div>

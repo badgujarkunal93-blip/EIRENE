@@ -1135,7 +1135,7 @@ const BackupRestore: React.FC = () => {
             <IconDatabase className="h-3.5 w-3.5" /> System Management
           </div>
           <h2 className="mt-3 text-2xl font-bold text-slate-900">Backup &amp; Recovery</h2>
-          <p className="mt-1 text-sm text-slate-600">Automated, encrypted AWS S3 snapshots for ECMS data security.</p>
+          <p className="mt-1 text-sm text-slate-600">Automated, encrypted AWS S3 snapshots for EIRENE data security.</p>
         </div>
         <button
           onClick={handleCreateNow}

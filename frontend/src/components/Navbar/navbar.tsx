@@ -45,8 +45,8 @@ const Navbar: React.FC = () => {
             to="/"
             className="flex items-center gap-2 font-extrabold tracking-tight text-base sm:text-lg"
           >
-            <img src={iconImg} alt="Care Home Logo" className="h-6 w-6 object-contain" />
-            <span>Care Home</span>
+            <img src={iconImg} alt="EIRENE Logo" className="h-6 w-6 object-contain" />
+            <span>EIRENE</span>
           </Link>
 
           {/* Desktop Navigation Links */}

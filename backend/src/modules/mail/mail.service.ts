@@ -274,7 +274,7 @@ export class MailService implements OnModuleInit {
   }
 
   private get systemName(): string {
-    return this.configService.get<string>('SYSTEM_NAME') || 'Care Home System';
+    return this.configService.get<string>('SYSTEM_NAME') || 'EIRENE Care Platform';
   }
 
   private get appUrl(): string {
@@ -511,7 +511,7 @@ export class MailService implements OnModuleInit {
         </table>
       </div>
 
-      ${warningBox(`This temporary password is valid for a single use only. Once you log in, you will be required to create a new password. If you did not request a password reset, please contact the ECMS team immediately, as someone else may have attempted to access your account.`)}
+      ${warningBox(`This temporary password is valid for a single use only. Once you log in, you will be required to create a new password. If you did not request a password reset, please contact the EIRENE team immediately, as someone else may have attempted to access your account.`)}
 
       ${signOff(this.systemName)}` +
       emailClose(this.systemName, year)
@@ -690,7 +690,7 @@ export class MailService implements OnModuleInit {
 
       ${bodyContent}
 
-      ${infoBox(`You can view all prescriptions for ${patientName} at any time by signing in to your <a href="${this.appUrl}" style="color:#0d6b6b;font-weight:600;text-decoration:none;">family member dashboard</a>. If you have any questions, please contact the care home team directly.`)}
+      ${infoBox(`You can view all prescriptions for ${patientName} at any time by signing in to your <a href="${this.appUrl}" style="color:#0d6b6b;font-weight:600;text-decoration:none;">family member dashboard</a>. If you have any questions, please contact the EIRENE care team directly.`)}
 
       ${signOff(this.systemName)}` +
       emailClose(this.systemName, year)
@@ -767,7 +767,7 @@ export class MailService implements OnModuleInit {
     const year = new Date().getFullYear();
 
     return (
-      emailOpen(this.systemName, 'Response to Your Enquiry', `The ECMS team has responded to your recent enquiry.`) +
+      emailOpen(this.systemName, 'Response to Your Enquiry', `The EIRENE team has responded to your recent enquiry.`) +
       `<p style="${P}">Dear <strong>${recipientName}</strong>,</p>
       <p style="${P}">Thank you for reaching out to us. Our team has reviewed your enquiry and prepared the following response.</p>
 
@@ -955,7 +955,7 @@ export class MailService implements OnModuleInit {
         </tr>
       </table>
 
-      ${infoBox(`You can view your full payment history at any time by signing in to your <a href="${this.appUrl}" style="color:#0d6b6b;font-weight:600;text-decoration:none;">family member dashboard</a>. If you have any questions regarding this payment, please contact the care home team directly.`)}
+      ${infoBox(`You can view your full payment history at any time by signing in to your <a href="${this.appUrl}" style="color:#0d6b6b;font-weight:600;text-decoration:none;">family member dashboard</a>. If you have any questions regarding this payment, please contact the EIRENE care team directly.`)}
 
       ${signOff(this.systemName)}` +
       emailClose(this.systemName, year)

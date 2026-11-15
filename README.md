@@ -1,376 +1,231 @@
-# 🏥 ECMS — Elderly Care Management System
+# 🌿 EIRENE — Peace of Mind, Better Care
+### Elderly Care & Medication Management Platform
 
-A full-stack web application for managing elderly care homes. It connects **admins**, **doctors**, **caregivers**, and **family members** under one secure platform to coordinate patient care, appointments, prescriptions, payments, and more.
+[![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](https://opensource.org/licenses/MIT)
+[![Node: >=18](https://img.shields.io/badge/Node-%3E%3D18-forestgreen.svg)](https://nodejs.org/)
+[![React: 19](https://img.shields.io/badge/React-19.2-blue.svg)](https://react.dev/)
+[![NestJS: 10](https://img.shields.io/badge/NestJS-10.4-red.svg)](https://nestjs.com/)
+[![PostgreSQL: 15+](https://img.shields.io/badge/PostgreSQL-15%2B-blue.svg)](https://www.postgresql.org/)
+
+**EIRENE** is a full-stack clinical and administrative platform designed for modern elderly care homes. It seamlessly connects **super administrators**, **facility administrators**, **attending doctors**, **on-duty caregivers**, and **family members** under one unified, secure platform to coordinate personalized resident care, medical appointments, structured electronic prescriptions, vital signs monitoring, dose administration logging, payments, and disaster recovery.
 
 ---
 
-## 📁 Project Structure
+## 📁 Repository Structure
 
 ```
-ecms/
-├── backend/      # NestJS REST API
-└── frontend/     # React + Vite SPA
+EIRENE/
+├── backend/      # NestJS 10 REST API (TypeScript, TypeORM, PostgreSQL)
+└── frontend/     # React 19 SPA (Vite, TailwindCSS v4, React Router v7)
 ```
 
 ---
 
-## ✨ Features
-
-### 👤 Role-Based Access
-| Role | Access |
-|------|--------|
-| `super_admin` | Full system control including admin management |
-| `admin` | Manage all users, patients, care plans, slots, payments, settings |
-| `doctor` | Appointments, channeling slots, prescriptions, patient history |
-| `caregiver` | Assigned patients, care notes, medication logs, vital records, schedules |
-| `family` | View elderly profile, care plans, appointments, prescriptions, payments |
-
-### 🔐 Security
-- HttpOnly JWT cookie-based authentication
-- CSRF token protection on all state-mutating requests
-- Role-based route guards on every protected endpoint
-- Rate limiting (throttling) on login and signup endpoints
-- Google Firebase OAuth login support
-- Password hashing with bcrypt
-- Helmet HTTP security headers
-
-### 📋 Modules
-- **Patient Management** — register and manage elderly residents
-- **Appointments** — request, approve, and track doctor appointments
-- **Care Plans** — create and update personalised care plans per patient
-- **Channeling Slots** — doctors publish availability; family/admin book slots
-- **Prescriptions** — doctors issue prescriptions; family and caregivers can view
-- **Care Notes** — caregivers log daily care observations per patient
-- **Medication Logs** — track medication administration by caregivers
-- **Vital Records** — record patient vitals (blood pressure, temperature, etc.)
-- **Payments** — family submits payments; admin approves and tracks history
-- **Bookings** — manage caregiver bookings and scheduling
-- **Contact** — public contact form; admin manages contact info and messages
-- **Mail** — automated email notifications via SMTP (nodemailer)
-- **Profile Management** — all roles can update their profile and avatar
-
----
-
-## 🛠 Tech Stack
+## 🛠️ Technology Stack
 
 ### Backend
-| Tech | Purpose |
-|------|---------|
-| [NestJS](https://nestjs.com/) | Node.js framework (TypeScript) |
-| [TypeORM](https://typeorm.io/) | ORM for PostgreSQL |
-| [PostgreSQL](https://www.postgresql.org/) | Relational database |
-| [JWT + cookie-parser](https://github.com/auth0/node-jsonwebtoken) | Session management via HttpOnly cookies |
-| [Firebase Admin SDK](https://firebase.google.com/docs/admin/setup) | Google OAuth token verification |
-| [Nodemailer](https://nodemailer.com/) | Email delivery (SMTP) |
-| [Helmet](https://helmetjs.github.io/) | HTTP security headers |
-| [NestJS Throttler](https://docs.nestjs.com/security/rate-limiting) | Rate limiting |
-| [bcrypt](https://github.com/kelektiv/node.bcrypt.js) | Password hashing |
-| [Multer](https://github.com/expressjs/multer) | File uploads (avatar images) |
-| [class-validator](https://github.com/typestack/class-validator) | DTO validation |
+| Technology | Version | Purpose |
+| :--- | :--- | :--- |
+| **NestJS** | `^10.4.22` | Enterprise TypeScript framework (Dependency injection, Guards, Pipes) |
+| **TypeORM** | `^0.3.28` | Object-Relational Mapper with PostgreSQL driver |
+| **PostgreSQL** | `15+` | Primary relational database |
+| **JWT (`@nestjs/jwt`)** | `^10.2.0` | Cryptographic session tokens delivered via HttpOnly cookies |
+| **Cookie-Parser** | `^1.4.7` | Express cookie middleware for secure session & CSRF extraction |
+| **Bcrypt** | `^5.1.1` | Password hashing (10 salt rounds) |
+| **Helmet** | `^8.2.0` | HTTP security headers (XSS, clickjacking, no-sniff, HSTS) |
+| **NestJS Throttler** | `^6.5.0` | Multi-tier rate limiting for brute-force defense |
+| **AWS SDK v3 (`@aws-sdk/client-s3`)** | `^3.1103.0` | Automated database snapshot storage with AES-256 encryption |
+| **Cloudinary** | `^2.10.0` | Cloud CDN storage for user avatar profiles |
+| **Nodemailer** | `^8.0.5` | Transactional email delivery (SMTP via Gmail) |
+| **Firebase Admin SDK** | `^13.8.0` | Google OAuth token verification and account federation |
 
 ### Frontend
-| Tech | Purpose |
-|------|---------|
-| [React 19](https://react.dev/) | UI framework |
-| [TypeScript](https://www.typescriptlang.org/) | Type safety |
-| [Vite](https://vitejs.dev/) | Build tool and dev server |
-| [React Router v7](https://reactrouter.com/) | Client-side routing |
-| [TailwindCSS v4](https://tailwindcss.com/) | Utility-first styling |
-| [Firebase SDK](https://firebase.google.com/docs/web/setup) | Google OAuth on client |
-| [Axios](https://axios-http.com/) | HTTP client |
+| Technology | Version | Purpose |
+| :--- | :--- | :--- |
+| **React** | `^19.2.3` | User interface library |
+| **React Router** | `^7.11.0` | Client-side routing and protected route guards |
+| **Vite** | `^7.3.2` | High-speed frontend build tool and development server |
+| **TailwindCSS** | `^4.1.18` | Modern utility-first responsive styling |
+| **Firebase Web SDK** | `^12.11.0` | Client-side Google authentication |
+| **Native Fetch Client** | Built-in | Centralized HTTP client in `apiClient.ts` with CSRF & cookie credentials |
+
+---
+
+## ✨ Features & Role-Based Access Control (RBAC)
+
+The platform enforces strict role boundaries across 5 specialized access tiers:
+
+| Role | Operational Scope & Permissions |
+| :--- | :--- |
+| `super_admin` | Master system control, administrator account creation, and admin deactivation. |
+| `admin` | Doctor, caregiver, and family account management; channeling slot creation; care plan catalog CRUD; bank transfer approval; facility contact settings; automated and manual S3 database backup & recovery. |
+| `doctor` | Management of assigned consultation slots (accept/reject/fee update); scheduled appointment reviews; consolidated patient medical history inspection; electronic prescription issuing with structured dosages. |
+| `caregiver` | Access to registered care-plan residents; vital signs recording (blood pressure, heart rate, temperature, SpO2, weight); qualitative daily care observations; medication administration status logging. |
+| `family` | Elderly resident registration; care plan package subscription; doctor appointment booking; digital prescription review; online payments (PayHere gateway) and bank transfer slip uploads. |
+
+---
+
+## 🔐 Security Architecture
+
+EIRENE implements an enterprise defense-in-depth model:
+
+1. **HttpOnly Cookie Sessions:** Signed JWT tokens are stored exclusively in an `auth_token` cookie configured with `HttpOnly: true` and `SameSite: 'none'` (with `secure: true` in production), preventing credential theft via Cross-Site Scripting (XSS).
+2. **Double-Submit CSRF Defense:** A cryptographically random token (`csrf_token`) is verified on every state-mutating request (`POST`, `PATCH`, `DELETE`) via `CsrfGuard` using `crypto.timingSafeEqual`.
+3. **Session Revocation on Logout:** The database tracks `User.lastLogoutAt`. Incoming JWT tokens issued prior to the user's latest logout timestamp are rejected with `401 Unauthorized`.
+4. **Brute-Force & Rate Limiting:** Global rate limiting (200 req/min) paired with strict authentication limits (5 logins/min). Accounts automatically enter a 15-minute lockout state after 5 consecutive failed password attempts.
+5. **Role-Based Guards:** A global guard pipeline (`GlobalSecurityGuard` -> `AuthThrottlerGuard` -> `JwtAuthGuard` -> `CsrfGuard` -> `RolesGuard`) protects all endpoints by default unless explicitly decorated with `@Public()`.
+6. **Encrypted Disaster Recovery:** Backup snapshots serialize database tables to JSON, compress with GZIP, encrypt with AES-256-CBC, and verify integrity via SHA-256 checksums before uploading to AWS S3.
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js ≥ 18
-- PostgreSQL running locally
-- A Firebase project (for Google OAuth)
-- A Gmail SMTP app password (for email)
+* **Node.js** `>= 18.x`
+* **PostgreSQL** `15+` (local or hosted on AWS RDS / Render / Supabase)
+* **SMTP Credentials** (e.g., Gmail App Password for transactional emails)
+* **Firebase Project** (for Google OAuth sign-in)
+* **AWS S3 Bucket & IAM Credentials** (optional, for backup/restore features)
+* **Cloudinary Account** (for avatar uploads)
+* **PayHere Merchant Credentials** (for online card payments)
 
 ---
 
-### 1. Clone the repository
+### Backend Setup
+
+1. Navigate to the backend directory and install dependencies:
+   ```bash
+   cd backend
+   npm install
+   ```
+
+2. Create a `.env` file in `backend/`:
+   ```env
+   # Application Environment
+   PORT=3000
+   NODE_ENV=development
+   SYSTEM_NAME=EIRENE Care Platform
+   APP_URL=http://localhost:5173
+
+   # PostgreSQL Database
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_USERNAME=postgres
+   DB_PASSWORD=your_postgres_password
+   DB_NAME=eirene_db
+
+   # JWT Security
+   JWT_SECRET=your_super_secret_jwt_key_32_chars_min
+   JWT_EXPIRATION=24h
+
+   # CORS Whitelist (comma-separated for multiple origins)
+   CORS_ORIGIN=http://localhost:5173,http://localhost:5174
+
+   # SMTP Notification Configuration (Gmail)
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=587
+   SMTP_SECURE=false
+   SMTP_USER=your_email@gmail.com
+   SMTP_PASS=your_gmail_app_password
+   MAIL_FROM=EIRENE <noreply@carehome.com>
+
+   # Firebase Admin SDK (Google OAuth)
+   FIREBASE_PROJECT_ID=your_firebase_project_id
+   FIREBASE_CLIENT_EMAIL=your_firebase_client_email
+   FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+
+   # Cloudinary (Profile Pictures)
+   CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+   CLOUDINARY_API_KEY=your_cloudinary_api_key
+   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+   # AWS S3 (Disaster Recovery Backups)
+   AWS_REGION=us-east-1
+   AWS_S3_BUCKET=your_eirene_backups_bucket
+   AWS_ACCESS_KEY_ID=your_aws_access_key
+   AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+   BACKUP_ENCRYPTION_KEY=your_32_byte_hex_encryption_key
+
+   # PayHere Payment Gateway
+   PAYHERE_MERCHANT_ID=your_payhere_merchant_id
+   PAYHERE_MERCHANT_SECRET=your_payhere_merchant_secret
+   PAYHERE_MODE=sandbox
+   ```
+
+3. Start the backend in development watch mode:
+   ```bash
+   npm run start:dev
+   ```
+   The backend API will run at: `http://localhost:3000/api`
+
+---
+
+### Frontend Setup
+
+1. Navigate to the frontend directory and install dependencies:
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+2. Create a `.env` file in `frontend/`:
+   ```env
+   VITE_API_URL=http://localhost:3000/api
+
+   # Firebase Web SDK
+   VITE_FIREBASE_API_KEY=your_api_key
+   VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+   VITE_FIREBASE_PROJECT_ID=your_project_id
+   VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+   VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+   VITE_FIREBASE_APP_ID=your_app_id
+   ```
+
+3. Start the frontend development server:
+   ```bash
+   npm run dev
+   ```
+   The application will run at: `http://localhost:5173`
+
+---
+
+## 🧪 Testing & Verification
 
 ```bash
-git clone https://github.com/Chamalka-heshi/Elderly-Home-Care-Management-System.git
-cd Elderly-Home-Care-Management-System
-```
-
----
-
-### 2. Backend Setup
-
-```bash
-cd backend
-npm install
-```
-
-Create a `.env` file in `backend/`:
-
-```env
-# Database
-DB_HOST=localhost
-DB_PORT=5432
-DB_USERNAME=postgres
-DB_PASSWORD=your_db_password
-DB_NAME=ecms
-
-# JWT
-JWT_SECRET=your_jwt_secret_key
-JWT_EXPIRATION=24h
-
-# App
-PORT=3000
-NODE_ENV=development
-SYSTEM_NAME=Care Home Management System
-
-# SMTP (Gmail)
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_SECURE=false
-SMTP_USER=your_email@gmail.com
-SMTP_PASS=your_gmail_app_password
-
-# Firebase Admin SDK
-FIREBASE_PROJECT_ID=your_project_id
-FIREBASE_CLIENT_EMAIL=your_client_email
-FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
-
-# CORS
-CORS_ORIGIN=http://localhost:5173
-```
-
-Start the backend:
-
-```bash
-npm run start:dev
-```
-
-Backend runs at: `http://localhost:3000/api`
-
----
-
-### 3. Frontend Setup
-
-```bash
-cd frontend
-npm install
-```
-
-Create a `.env` file in `frontend/`:
-
-```env
-VITE_API_URL=http://localhost:3000/api
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-VITE_FIREBASE_APP_ID=your_app_id
-VITE_FIREBASE_MEASUREMENT_ID=G-XXXXXXXXXX
-```
-
-Start the frontend:
-
-```bash
-npm run dev
-```
-
-Frontend runs at: `http://localhost:5173`
-
----
-
-## 📂 Backend Module Overview
-
-```
-backend/src/
-├── common/
-│   ├── constants/          # Security constants (CSRF, cookie config)
-│   ├── decorators/         # @GetUser, @Public
-│   ├── enums/              # UserRole enum
-│   ├── filters/            # Global HTTP exception filter
-│   ├── guards/             # JwtAuthGuard, RolesGuard, CsrfGuard, ThrottlerGuard
-│   └── modules/            # JwtConfigModule
-├── config/                 # App configuration (DB, JWT, CORS, SMTP)
-└── modules/
-    ├── auth/               # Login, signup, profile, password management, Firebase OAuth
-    ├── users/              # Core user entity and service
-    ├── admin/              # Admin profile and management
-    ├── doctors/            # Doctor profile and management
-    ├── caregivers/         # Caregiver profile, care notes, medication logs, vital records
-    ├── family/             # Family member profile and management
-    ├── patients/           # Patient registration and management
-    ├── appointments/       # Appointment requests and approvals
-    ├── care-plan/          # Patient care plan creation and updates
-    ├── channeling-slot/    # Doctor availability slots and bookings
-    ├── bookings/           # Caregiver booking management
-    ├── prescription/       # Doctor prescriptions per patient
-    ├── payments/           # Payment submission and approval
-    ├── contact/            # Contact form and contact info management
-    └── mail/               # Email notification service
-```
-
----
-
-## 📂 Frontend Module Overview
-
-```
-frontend/src/
-├── api/                    # All API call functions grouped by feature
-├── auth/                   # AuthContext, AuthProvider, ProtectedRoute
-├── config/                 # Firebase client config
-├── features/
-│   ├── home/               # Public landing page
-│   ├── about/              # About page
-│   ├── services/           # Services page
-│   ├── payments/           # Public payments info page
-│   ├── contact/            # Public contact form
-│   ├── auth/               # Login, Signup, ForgotPassword, ForceChangePassword
-│   └── dashboards/
-│       ├── admin/          # Admin dashboard and all admin pages
-│       ├── doctor/         # Doctor dashboard and pages
-│       ├── caregiver/      # Caregiver dashboard and pages
-│       ├── familymember/   # Family member dashboard and pages
-│       └── common/         # Shared UI components (Sidebar, Avatar, Icons, etc.)
-```
-
----
-
-## 🔑 Authentication Flow
-
-1. User logs in via email/password or Google OAuth.
-2. Backend validates credentials, issues a **signed JWT stored in an HttpOnly cookie**.
-3. A **CSRF token** is returned in the response body and stored in `sessionStorage`.
-4. All subsequent requests include the cookie (automatic) and the CSRF token header (`X-CSRF-Token`).
-5. On page load, the frontend calls `GET /api/auth/profile` to restore session silently.
-6. A `401` on the profile bootstrap means no active session — the user is sent to `/login`.
-7. A `401` on any other request mid-session means the cookie expired — the user is sent to `/login?reason=expired` with a banner.
-
----
-
-## 🧪 Running Tests
-
-```bash
-# Backend unit tests
+# Run backend unit tests (17 test suites covering auth, appointments, payments, etc.)
 cd backend
 npm run test
 
-# Backend test coverage
+# Run backend test coverage
 npm run test:cov
 
-# Frontend tests
-cd frontend
-npm run test
+# Production build compilation
+cd backend && npm run build
+cd ../frontend && npm run build
 ```
 
 ---
 
-## 📜 Available Scripts
+## ⚠️ System Limitations & Operational Notes
 
-### Backend
-| Script | Description |
-|--------|-------------|
-| `npm run start:dev` | Start in watch mode (development) |
-| `npm run start:prod` | Start compiled production build |
-| `npm run build` | Compile TypeScript to `dist/` |
-| `npm run test` | Run unit tests |
-| `npm run lint` | Lint and auto-fix source files |
-
-### Frontend
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start Vite dev server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build locally |
-| `npm run lint` | Run ESLint |
-| `npm run test` | Run Jest tests |
+In the interest of full technical transparency, the following design characteristics should be noted:
+1. **Medication Administration Tracking:** When a caregiver marks a scheduled dose as "Missed" or "Administered", the record is stored in PostgreSQL as a clinical audit row. The system does not dispatch real-time emergency push notifications or SMS alerts upon a missed dose.
+2. **Pooled Caregiver Model:** Caregivers currently access all residents registered with an active care plan in a facility-wide pooled model; individual 1-to-1 caregiver-patient schedule assignments are not partitioned in the database.
+3. **Caregiver Shift View:** The weekly shift calendar rendered in `CareSchedule.tsx` is computed dynamically on the client via round-robin distribution for visual demonstration.
+4. **Database Restore Permissions:** The automated database restore utility executes `SET session_replication_role = replica` to facilitate bulk table repopulation. In cloud PostgreSQL instances (such as AWS RDS), this requires appropriate superuser or replication privileges.
+5. **Notification Channels:** System notifications are delivered asynchronously via Gmail SMTP. In-app notification center bells, WebSockets, and SMS integrations are not included.
 
 ---
 
-## 🌿 Branch Strategy
+## 📜 Original Authorship, Provenance & Licensing
 
-| Branch | Purpose | Contributor |
-|--------|---------|-------------|
-| `main` | Stable production-ready code | Team |
-| `Admin-Poorna.Danushka` | Admin module, auth & security features, backup & recovery, contact, doctor scheduling, profile management | [@Poorna-danushka](https://github.com/Poorna-danushka) |
-| `feature/*` | Individual feature branches | Team |
+EIRENE is an enhanced and rebranded adaptation based upon the foundational **Elderly Care Management System (ECMS)** open-source codebase, originally developed and authored by:
 
----
+* **Poorna Danushka** ([@Poorna-danushka](https://github.com/Poorna-danushka)) — Core Authentication & Security Foundation, Admin Module, AWS S3 Backup & Recovery, Contact Inquiries, Email Templates.
+* **Chathuni Janadhi** ([@chathunijanadhi](https://github.com/chathunijanadhi)) — Doctor Dashboard, Channeling Slot Lifecycle, Prescription Management, Medical History.
+* **Chamalka Heshani** ([@Chamalka-heshi](https://github.com/Chamalka-heshi)) — Caregiver Dashboard, Vital Records Tracking, Care Notes, Medication Updates.
+* **Sachin Silva** ([@Sachin-Silva](https://github.com/sachinmaleesha62)) — Admin UI Layouts, Public Components, Footers, and Dashboard Navigation.
+* **Lisitha Kularathna** ([@lisithakularathna](https://github.com/lisithakularathna)) — Family Member Dashboard, Elderly Resident Profile Registration, About Page.
 
-## 👨‍💻 Individual Contribution — Poorna Danushka
-
-- **Branch:** `Admin-Poorna.Danushka`
-- **GitHub:** [@Poorna-danushka](https://github.com/Poorna-danushka)
-
-### 📌 Overview
-I contributed to the ECMS project through the development and design of the system's authentication and security layer, admin module, account and staff onboarding, contact management, doctor scheduling, profile management, and backup and recovery features. The project was a large full-stack healthcare management platform, and my work was concentrated on the parts of the system that made it secure, operationally usable, well-structured, and ready for real elderly-care workflows.
-
----
-
-### 🔐 1. Authentication & Security Foundation
-- **JWT & Secure Cookie Sessions:** Implemented the login and signup flow using JWT-based authentication, managing sessions through secure `HttpOnly` cookies rather than exposing tokens to client-side JavaScript.
-- **Credential Hashing & Recovery:** Hashed all credentials with `bcrypt`, built forgot-password and reset-password flows so users could recover accounts safely, and enforced a mandatory password change on first login for newly created accounts.
-- **Security Hardening & Rate Limiting:** Added rate limiting on authentication endpoints to resist brute-force attempts, tracked failed login attempts with temporary account lockout, and implemented CSRF protection on all state-changing requests.
-- **Guards & Protected Routes:** Paired frontend protected routes (redirecting unauthorized or session-expired users away from restricted pages) with backend JWT and role-based guards so every controller endpoint is strictly accessible only by authenticated and authorized users.
-
----
-
-### 👥 2. Role-Based Access Control (RBAC) & Staff Onboarding
-- **5-Role Access Architecture:** Implemented role-based access control across five roles — `super_admin`, `admin`, `doctor`, `caregiver`, and `family` — ensuring each role can only access the pages and API endpoints relevant to their responsibilities.
-- **Controlled Staff Provisioning:** Built a structured onboarding flow where super admins can create new admin accounts, and admins can create doctor and caregiver accounts.
-- **One-Time Temporary Passwords:** Each newly created staff account receives a one-time temporary password via email and is mandated to change the password during the first login, providing a secure and professional onboarding mechanism without manual credential sharing.
-
----
-
-### ⚙️ 3. Admin Module Architecture, UI/UX Design & UML Modeling
-- **Figma UI/UX Design:** Designed the Admin Dashboard UI in Figma, including dashboard statistics, management tables for doctors, caregivers, and families, and modular form components for adding, updating, and deactivating user accounts to ensure clean and efficient administrative workflows.
-- **Relational Database Planning:** Planned the PostgreSQL database schema for administrator and user management, structuring relationships and constraints between `Admins`, `Users`, and `Roles` entities to ensure data consistency and seamless RBAC integration.
-- **UML Diagrams & Process Visualization:** Created the **Admin Use Case Diagram** (representing user and role lifecycle activities) and **Sequence Diagram** (visualizing workflows for adding, updating, and deactivating accounts across the UI, backend services, and database).
-
----
-
-### 📬 4. End-to-End Contact Management Module
-- **Public Inquiry Flow:** Implemented the public-facing contact form and database storage for incoming inquiries.
-- **Admin Management & Inquiries Dashboard:** Built an admin dashboard where messages can be viewed, filtered by status, and inspected in detail.
-- **Two-Way Communication:** Implemented the reply workflow enabling admins to reply to inquiries directly from the dashboard, which marks messages as replied and automatically triggers an email back to the original sender via SMTP.
-
----
-
-### 🩺 5. Doctor Scheduling & Channeling Slot Management
-- **Channeling Slot Lifecycle:** Built the workflow where admins create channeling slots, doctors view assigned slots to accept or reject them based on availability, and doctors update their consultation fees for individual slots.
-- **Care Coordination Link:** Connected doctor availability with appointment booking and payment workflows across the platform.
-
----
-
-### 🖼️ 6. Profile Management & Cloud Storage Integration
-- **Role Profile Management:** Implemented full profile management allowing users of all roles to update their personal information.
-- **Cloudinary Avatar Uploads:** Built profile picture upload with type and size validation, automated upload to Cloudinary for hosted storage, secure URL storage against user records in PostgreSQL, and support for photo removal.
-
----
-
-### 💾 7. Database Backup, Disaster Recovery & Integrity Verification
-- **Automated & Manual Snapshots:** Implemented backup creation, restore, retention management, and integrity verification, writing compressed snapshot files to persistent storage with metadata (file size, checksum, database version).
-- **Cloud-Ready Architecture:** Designed the backup storage layer with extensibility to cloud object storage (e.g., AWS S3) for offsite retention.
-- **Operational Awareness:** Connected the module to the email service so administrators receive instant email alerts whenever a backup succeeds or fails.
-
----
-
-### ☁️ 8. Infrastructure, Deployment & Quality Assurance
-- **Cloud Database (AWS RDS):** Configured the backend to connect to a PostgreSQL database hosted on AWS RDS.
-- **Environment Configuration:** Centralized database, JWT, SMTP, and Cloudinary configurations into environment variables for multi-environment support.
-- **Frontend Dashboard Components:** Built reusable components, layouts, and consistent navigation across admin, doctor, caregiver, and family dashboards.
-- **Testing & Documentation:** Improved system maintainability with backend unit tests, robust error handling, and detailed documentation of the architecture, setup process, and authentication flows.
-
----
-
-### 💡 Challenges & Solutions
-- **Complex Multi-Role UI & State Management:** Addressed the challenge of managing multiple user types and actions cleanly by designing modular, reusable Figma components and structuring consistent role-based dashboard layouts.
-- **RBAC & Schema Consistency:** Structured relational constraints and entity relationships carefully before backend integration, leveraging UML diagrams to clarify responsibilities between UI, backend controllers, and database entities.
-
----
-
-> *Note: This summary reflects the individual work authored by Poorna Danushka on the `Admin-Poorna.Danushka` branch as part of the collaborative ECMS project.*
-
-
+**Upstream Repository:** [https://github.com/Chamalka-heshi/Elderly-Home-Care-Management-System.git](https://github.com/Chamalka-heshi/Elderly-Home-Care-Management-System.git)  
+**License:** Licensed under the [MIT License](https://opensource.org/licenses/MIT). Original copyright notices, licensing conditions, and commit histories are preserved in full accordance with open-source standards.

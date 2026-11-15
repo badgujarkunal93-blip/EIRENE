@@ -175,7 +175,7 @@ const ContactPage: React.FC = () => {
         <div className="cp-hero__orb cp-hero__orb--b" />
 
         <div className="cp-hero__inner">
-          <span className="cp-hero__pill">Care Home Support</span>
+          <span className="cp-hero__pill">EIRENE Support</span>
           <h1 className="cp-hero__title">
             Let's <em>Talk</em>
           </h1>

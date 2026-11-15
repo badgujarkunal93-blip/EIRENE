@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "ecms-backend",
+  "name": "eirene-backend",
   "version": "1.0.0",
-  "description": "Elderly Care Management System Backend",
+  "description": "EIRENE — Elderly Care & Medication Management Platform Backend",
   "author": "",
   "private": true,
   "license": "MIT",

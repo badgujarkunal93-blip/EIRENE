@@ -72,7 +72,7 @@ const CostPaymentPage: React.FC = () => {
         <div className="relative z-10 mx-auto flex h-[260px] max-w-7xl items-center px-4 sm:px-6 lg:h-[320px] lg:px-8">
           <div className="mx-auto max-w-3xl text-center pay-heroContent">
             <p className="mb-4 inline-flex items-center justify-center gap-2 text-white/90 text-sm md:text-base">
-              <span className="pay-pill">Care Home</span>
+              <span className="pay-pill">EIRENE</span>
               <span className="hidden sm:inline text-white/70">•</span>
               <span className="hidden sm:inline text-white/85">Secure checkout, admin-approved transfers</span>
             </p>

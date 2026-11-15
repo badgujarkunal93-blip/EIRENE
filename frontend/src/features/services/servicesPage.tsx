@@ -657,7 +657,7 @@ const ServicesPage: React.FC = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[260px] md:h-[330px] flex items-center">
           <div className="svc-heroContent max-w-3xl">
-            <span className="svc-pill">Care Home • Services</span>
+            <span className="svc-pill">EIRENE • Services</span>
             <h1 className="mt-4 text-white text-3xl md:text-5xl font-extrabold tracking-tight">
               Services designed for comfort, safety &amp; dignity.
             </h1>

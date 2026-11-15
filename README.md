@@ -7,6 +7,23 @@
 [![NestJS: 10](https://img.shields.io/badge/NestJS-10.4-red.svg)](https://nestjs.com/)
 [![PostgreSQL: 15+](https://img.shields.io/badge/PostgreSQL-15%2B-blue.svg)](https://www.postgresql.org/)
 
+**Project Maintainer & Developer:** Kunal Badgujar ([@badgujarkunal93-blip](https://github.com/badgujarkunal93-blip))  
+**Repository Destination:** [https://github.com/badgujarkunal93-blip/EIRENE](https://github.com/badgujarkunal93-blip/EIRENE)  
+
+---
+
+## 👨‍💻 Project Adaptation & Student Contributions
+
+This project is an advanced adaptation of an open-source clinical framework, engineered into the **EIRENE** platform:
+
+1. **Brand Identity & UI Modernization:** Redesigned the application identity, navigation, color palettes (Forest & Sage Green), typography, dashboard headers, metadata, and transactional email templates into the cohesive **EIRENE** brand.
+2. **Environment & DevOps Architecture:** Designed and implemented multi-tier environment schemas (`.env` and `.env.example`) across both NestJS backend and Vite frontend, isolating secrets and supporting seamless onboarding.
+3. **Containerization & Tooling:** Configured local Docker Compose environments for PostgreSQL and created cross-platform automation scripts (`start-all.ps1`, `start-all.sh`) for rapid developer startup.
+4. **Health Monitoring & System Verification:** Integrated system health check probes, audited all 17 test suites (268 passing tests), and verified end-to-end production builds for React 19 and NestJS 10.
+5. **Technical Documentation & Defense Toolkit:** Authored comprehensive architectural specifications, REST API references, database synchronization guides, and a faculty viva defense guide.
+
+---
+
 **EIRENE** is a full-stack clinical and administrative platform designed for modern elderly care homes. It seamlessly connects **super administrators**, **facility administrators**, **attending doctors**, **on-duty caregivers**, and **family members** under one unified, secure platform to coordinate personalized resident care, medical appointments, structured electronic prescriptions, vital signs monitoring, dose administration logging, payments, and disaster recovery.
 
 ---
